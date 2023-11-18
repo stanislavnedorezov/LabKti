@@ -1,5 +1,6 @@
 autopep8
 bcrypt
+blinker
 click
 Flask
 Flask-Bcrypt
@@ -11,8 +12,10 @@ gunicorn
 itsdangerous
 Jinja2
 MarkupSafe
+packaging
 pycodestyle
 SQLAlchemy
 toml
+typing_extensions
 Werkzeug
 WTForms
