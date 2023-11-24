@@ -1,7 +1,27 @@
 {% extends "base.html" %}
 {% block title %}Home Page{% endblock %}
 {% block content %}
-    <h1>Login Authentication System in Flask.</h1>
+    <h1>Login Authentication System in Flask.</h1><br>
+    <h2>Today is {{ check }}</h2>
+    <!-- Time will be dynamically updated in the frontend-->
+    <h2>Current time is <i id="timer"></i></h2><br>
+    <script>
+        var timeDisplay = document.getElementById("timer");
+        function refreshTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        timeDisplay.innerHTML = h + ":" + m + ":" + s;
+        }
+        function checkTime(i) {
+        if (i < 10) {i = "0" + i};
+        return i;
+        }
+        setInterval(refreshTime, 1000);
+    </script>
     <a href="{{ url_for('auth.login') }}">Login Page</a><br>
     <a href="{{ url_for('auth.register') }}">Register Page</a><br>
 {% endblock %}
