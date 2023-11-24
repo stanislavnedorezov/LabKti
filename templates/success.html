@@ -1,8 +1,39 @@
 {% extends "base.html" %}
 {% block title %}Success Page{% endblock %}
 {% block content %}
-<img src="{{ url_for('static', filename='uareamazing.jpg') }}" class="img-fluid" alt="uareamazing.jpg">
+<div style="width: fit-content;">
+<h1 id="txt1"></h1>
+<img src="{{ url_for('static', filename='uareamazing.jpg') }}" class="img-fluid"
+alt="uareamazing.jpg">
 <div class="mt-3"></div>
-<a href="{{ url_for('auth.logout') }}">Press here to logout</a>
+<a id="txt2" class="float-right" href="{{ url_for('auth.logout') }}"></a>
+<button id="changeLang" class="btn btn-danger" style="float: right;"></button>
 </div>
+<script>
+var button = document.getElementById('changeLang');
+var paragraph1 = document.getElementById('txt1');
+var paragraph2 = document.getElementById('txt2');
+var eng1 = "Authorization successful!";
+var eng2 = "Press here to logout";
+var eng3 = "Change language";
+var olb1 = "Авторизация пройдена!";
+var olb2 = "Выход";
+var olb3 = "Изменить язык";
+paragraph1.textContent = eng1;
+paragraph2.textContent = eng2;
+button.textContent = eng3;
+var clickCount = 0;
+button.addEventListener('click', function() {
+clickCount++;
+if (clickCount % 2 !== 0) {
+paragraph1.textContent = olb1;
+paragraph2.textContent = olb2;
+button.textContent = olb3;
+} else {
+paragraph1.textContent = eng1;
+paragraph2.textContent = eng2;
+button.textContent = eng3;
+}
+});
+</script>
 {% endblock %}
